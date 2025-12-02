@@ -6,6 +6,10 @@ html
   body
   
     h1 #{bike.id ? "Update Bike" : "Add New Bike"}
+    .back-link
+      a(href="/") Return to the homepage
+    br
+    br
   .add-bike-form
     form(action=bike.id ? `/update-bike/${bike.id}` : "/update-bike" method="POST")
       label(for="name") Name
@@ -18,7 +22,3 @@ html
       input(type="text" id="color" name="color" required value=bike.properties.color)
 
       button(type="submit") #{bike.id ? "Update Bike" : "Add Bike"}
-
-    br
-    .back-link
-      a(href="/") Return to the homepage
