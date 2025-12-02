@@ -106,3 +106,102 @@ tbody tr:hover {
         text-transform: capitalize;
     }
 }
+
+
+/* PAGE TITLE */
+.add-bike-form h1 {
+    font-size: 32px;
+    color: #1a73e8;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* FORM CONTAINER */
+.add-bike-form form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* LABEL */
+.add-bike-form label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: -8px;
+}
+
+/* INPUT */
+.add-bike-form input[type="text"] {
+    padding: 12px 15px;
+    border: 2px solid #cbd6e0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.25s ease;
+}
+
+.add-bike-form input[type="text"]:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+/* BUTTON */
+.add-bike-form button {
+    padding: 14px;
+    background: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.add-bike-form button:hover {
+    background: #125fc2;
+}
+
+/* BACK LINK */
+.add-bike-form a {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #1a73e8;
+}
+
+.add-bike-form a:hover {
+    text-decoration: underline;
+}
+
+.back-link a {
+    display: inline-block;
+    color: #fff;
+    background: #1a73e8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    background: #125fc2;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .add-bike-form form {
+        padding: 20px;
+    }
+
+    .add-bike-form h1 {
+        font-size: 26px;
+    }
+}
