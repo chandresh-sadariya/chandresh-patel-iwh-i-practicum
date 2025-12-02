@@ -1,58 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-body, * {
-    font-family: 'Roboto', sans-serif;
+/* ===========================
+   GLOBAL STYLE
+=========================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    background: #f5f7fa;
+    color: #333;
 }
 
 h1 {
-    margin: 1rem;
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a73e8;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+/* ===========================
+   BUTTON / LINK
+=========================== */
+a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #1a73e8;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.card {
-    flex-basis: 31%;
-    margin: 1rem 0.4rem;
-    padding: 1rem 0.4rem 2.5rem 0.4rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+a:hover {
+    background: #155bb8;
 }
 
-.card__email {
-    font-size: 1rem;
+/* ===========================
+   TABLE STYLE
+=========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.form-wrapper {
-    font-size: 18px;
-    max-width: 768px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+thead {
+    background: #1a73e8;
+    color: #fff;
 }
 
-label, input {
-    margin-top: 5px;
-    display: block;
-    font-size: inherit;
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    font-size: 15px;
 }
 
-input[type="text"] {
-    padding: .25rem;
+tbody tr:nth-child(even) {
+    background: #f2f6ff;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
-    border: none;
-    padding: .375rem 1rem;
-    margin-top: 10px;
+tbody tr:hover {
+    background: #e6edfb;
+    cursor: pointer;
+}
+
+/* ===========================
+   RESPONSIVE TABLE
+=========================== */
+@media (max-width: 768px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 12px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+    }
+
+    td {
+        padding: 12px 16px;
+        text-align: right;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
 }
