@@ -68,7 +68,7 @@ app.get('/update-bike/:id', async (req, res) => {
     }
 });
 
-// -------- Create New Bike --------
+// -------- Create New Bike(OBJ) --------
 app.post('/update-bike', async (req, res) => {
     const body = {
         properties: {
