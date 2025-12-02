@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Custom Object Table
+    a(href="/update-bike") Add/Update this Table
+    br
+    br
+
+    table(border="1" cellpadding="8" cellspacing="0")
+      thead
+        tr
+          th Name
+          th CC
+          th Color
+          
+      tbody
+        each bike in data
+          tr
+            td(data-label="Name")= bike.properties.name
+            td(data-label="CC")= bike.properties.cc
+            td(data-label="Color")= bike.properties.color
+         
