@@ -34,5 +34,98 @@ app.get('/', async (req, res) => {
     }
 });
 
+
+// -------- Add new (blank form) --------
+app.get('/update-bike', (req, res) => {
+    res.render('update-bike', {
+        title: "Update Custom Object Form | Integrating With HubSpot I Practicum",
+        bike: { id: null, properties: { name: "", cc: "", color: "" } }
+    });
+});
+
+// -------- Load data for update --------
+app.get('/update-bike/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const resp = await axios.get(
+            `https://api.hubapi.com/crm/v3/objects/2-221994451/${id}?properties=name,cc,color`,
+            {
+                headers: {
+                    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        res.render('update-bike', {
+            title: "Update Bike",
+            bike: resp.data
+        });
+
+    } catch (err) {
+        res.send("Error loading bike");
+    }
+});
+
+// -------- Create New Bike --------
+app.post('/update-bike', async (req, res) => {
+    const body = {
+        properties: {
+            name: req.body.name,
+            cc: req.body.cc,
+            color: req.body.color,
+        }
+    };
+
+    try {
+        await axios.post(
+            "https://api.hubapi.com/crm/v3/objects/2-221994451",
+            body,
+            {
+                headers: {
+                    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        res.redirect('/');
+    } catch (err) {
+        res.send("Error adding bike");
+    }
+});
+
+// -------- Update Existing Bike --------
+app.post('/update-bike/:id', async (req, res) => {
+    const id = req.params.id;
+
+    const body = {
+        properties: {
+            name: req.body.name,
+            cc: req.body.cc,
+            color: req.body.color,
+        }
+    };
+
+    try {
+        await axios.patch(
+            `https://api.hubapi.com/crm/v3/objects/2-221994451/${id}`,
+            body,
+            {
+                headers: {
+                    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        res.redirect('/');
+    } catch (err) {
+        res.send("Error updating bike");
+    }
+});
+
+
 // * Localhost
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));

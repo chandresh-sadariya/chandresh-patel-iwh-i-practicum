@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel="stylesheet", href="/css/style.css")
+  body
+  
+    h1 #{bike.id ? "Update Bike" : "Add New Bike"}
+  .add-bike-form
+    form(action=bike.id ? `/update-bike/${bike.id}` : "/update-bike" method="POST")
+      label(for="name") Name
+      input(type="text" id="name" name="name" required value=bike.properties.name)
+
+      label(for="cc") CC
+      input(type="text" id="cc" name="cc" required value=bike.properties.cc)
+
+      label(for="color") Color
+      input(type="text" id="color" name="color" required value=bike.properties.color)
+
+      button(type="submit") #{bike.id ? "Update Bike" : "Add Bike"}
+
+    br
+    .back-link
+      a(href="/") Return to the homepage
